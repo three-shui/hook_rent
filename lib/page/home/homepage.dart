@@ -1,13 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:hook_rent/page/home/tab_index/index.dart';
 import 'package:hook_rent/widgets/page_content.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _tabViewList = [
+    const TabIndex(),
+    const PageContent(name: "搜索"),
+    const PageContent(name: "咨询"),
+    const PageContent(name: "我的"),
+  ];
+
+  final List<BottomNavigationBarItem> _bottomNavigationBarItems = [
+    const BottomNavigationBarItem(icon: Icon(Icons.home), label: '首页'),
+    const BottomNavigationBarItem(icon: Icon(Icons.search), label: '搜索'),
+    const BottomNavigationBarItem(icon: Icon(Icons.info), label: '咨询'),
+    const BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: '我的'),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      child: PageContent(name: "首页"),
+    return Scaffold(
+      body: Center(
+        child: _tabViewList[_selectedIndex],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: _bottomNavigationBarItems,
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.green,
+        onTap: _onItemTapped,
+      ),
     );
   }
 }
