@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hook_rent/page/home/tab_index/index.dart';
+import 'package:hook_rent/page/home/tab_info/tab_info.dart';
+import 'package:hook_rent/page/home/tab_search/tab_search.dart';
 import 'package:hook_rent/widgets/page_content.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,15 +16,15 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _tabViewList = [
     const TabIndex(),
-    const PageContent(name: "搜索"),
-    const PageContent(name: "咨询"),
+    const TabSearch(),
+    const TabInfo(),
     const PageContent(name: "我的"),
   ];
 
   final List<BottomNavigationBarItem> _bottomNavigationBarItems = [
     const BottomNavigationBarItem(icon: Icon(Icons.home), label: '首页'),
     const BottomNavigationBarItem(icon: Icon(Icons.search), label: '搜索'),
-    const BottomNavigationBarItem(icon: Icon(Icons.info), label: '咨询'),
+    const BottomNavigationBarItem(icon: Icon(Icons.info), label: '资讯'),
     const BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: '我的'),
   ];
 
