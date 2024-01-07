@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hook_rent/page/home/tab_index/index.dart';
 import 'package:hook_rent/page/home/tab_info/tab_info.dart';
+import 'package:hook_rent/page/home/tab_profile/tab_profile.dart';
 import 'package:hook_rent/page/home/tab_search/tab_search.dart';
-import 'package:hook_rent/widgets/page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     const TabIndex(),
     const TabSearch(),
     const TabInfo(),
-    const PageContent(name: "我的"),
+    const TabProfile(),
   ];
 
   final List<BottomNavigationBarItem> _bottomNavigationBarItems = [
