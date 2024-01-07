@@ -48,10 +48,18 @@ class _SearchBarState extends State<SearchBar> {
   late FocusNode _focus;
 
   _onClear() {
+    //清空文本框的内容
     _controller.clear();
     setState(() {
       _searchWords = "";
     });
+  }
+
+  @override
+  void dispose() {
+    //释放资源
+    _controller.dispose();
+    super.dispose();
   }
 
   @override

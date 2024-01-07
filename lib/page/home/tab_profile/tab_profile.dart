@@ -14,6 +14,14 @@ class TabProfile extends StatelessWidget {
       appBar: AppBar(
         title: Text("我的"),
         elevation: 0.8,
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 10.0),
+            child: GestureDetector(
+                onTap: () => Navigator.of(context).pushNamed("/settings"),
+                child: Icon(Icons.settings)),
+          )
+        ],
       ),
       body: ListView(
         children: [

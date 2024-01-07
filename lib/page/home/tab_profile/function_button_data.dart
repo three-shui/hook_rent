@@ -19,6 +19,8 @@ final List<FunctionButtonItem> functionButtonItems = [
     bool isLogin = true; //假设先设置未登录
     if (isLogin) {
       Navigator.pushNamed(context, 'roomManage');
+    }else{
+      Navigator.pushNamed(context, '/login');
     }
   })
 ];

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hook_rent/page/home/tab_search/room_list_item_data.dart';
 import 'package:hook_rent/widgets/room_list_item_widget.dart';
-import 'package:hook_rent/widgets/search_bar.dart';
+import 'package:hook_rent/widgets/search_bar/search_bar.dart';
 
 class TabSearch extends StatefulWidget {
   const TabSearch({Key? key}) : super(key: key);

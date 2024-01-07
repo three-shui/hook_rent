@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hook_rent/page/home/info/info.dart';
-import 'package:hook_rent/widgets/search_bar.dart';
+import 'package:hook_rent/widgets/search_bar/search_bar.dart';
 
 class TabInfo extends StatefulWidget {
   const TabInfo({Key? key}) : super(key: key);
