@@ -3,6 +3,7 @@ import 'package:hook_rent/page/home/homepage.dart';
 import 'package:hook_rent/page/login.dart';
 import 'package:hook_rent/page/not_found.dart';
 import 'package:hook_rent/page/register.dart';
+import 'package:hook_rent/page/room_add/room_add.dart';
 import 'package:hook_rent/page/room_detail/room_detail.dart';
 import 'package:hook_rent/page/room_manage/room_manage.dart';
 import 'package:hook_rent/page/settings.dart';
@@ -15,6 +16,7 @@ class Routes {
   static String roomDetail = "/room/:roomId";
   static String settings = "/settings";
   static String roomManage = "/roomManage";
+  static String roomAdd = "/roomAdd";
 
   //2.定义路由跳转页面
   //home
@@ -54,6 +56,11 @@ class Routes {
     return RoomManage();
   });
 
+  // roomAdd
+  static var _roomAddHandler = Handler(handlerFunc: (_, __) {
+    return RoomAdd();
+  });
+
   //3.编写函数,关联路由名称和处理函数
   static void defineRoutes(FluroRouter router) {
     router.define(home, handler: _homeHandler);
@@ -63,5 +70,6 @@ class Routes {
     router.define(roomDetail, handler: _roomDetailHandler);
     router.define(settings, handler: _settingsHandler);
     router.define(roomManage, handler: _roomManageHandler);
+    router.define(roomAdd, handler: _roomAddHandler);
   }
 }
