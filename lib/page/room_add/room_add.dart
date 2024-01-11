@@ -7,6 +7,7 @@ import 'package:hook_rent/widgets/common_image_picker.dart';
 import 'package:hook_rent/widgets/common_radio_form_item.dart';
 import 'package:hook_rent/widgets/common_select_from_item.dart';
 import 'package:hook_rent/widgets/common_title.dart';
+import 'package:hook_rent/widgets/room_appliance.dart';
 
 class RoomAdd extends StatefulWidget {
   const RoomAdd({Key? key}) : super(key: key);
@@ -30,6 +31,9 @@ class _RoomAddState extends State<RoomAdd> {
 
   //朝向
   int orienten = 0;
+
+  var _titleController = TextEditingController();
+  var _descController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -130,8 +134,32 @@ class _RoomAddState extends State<RoomAdd> {
           CommonTitle(title: "房屋图片"),
           CommonImagePicker(onChange: (List<File> files) {}),
           CommonTitle(title: "房屋标题"),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: TextField(
+              controller: _titleController,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "请输入标题（例如：整租，小区名 2室 2000单元"),
+            ),
+          ),
           CommonTitle(title: "房屋配置"),
+          RoomAppliance(
+            onChange: (data) {},
+          ),
           CommonTitle(title: "房屋描述"),
+          Container(
+            margin: EdgeInsets.only(bottom: 100),
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: TextField(
+              maxLines: 10,
+              controller: _descController,
+              decoration: InputDecoration(
+                  //这里我给描述加了边框，我觉得这样更好看
+                  border: OutlineInputBorder(),
+                  hintText: "请输入房屋描述信息"),
+            ),
+          ),
         ],
       ),
     );

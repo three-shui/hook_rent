@@ -11,37 +11,40 @@ class RoomListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-      child: Row(
-        children: [
-          CommonImage(
-            data.imageUrl,
-            width: 140,
-          ),
-          Padding(padding: EdgeInsets.only(left: 10)),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  data.title,
-                  style: TextStyle(fontWeight: FontWeight.w600),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Text(data.subTitle, style: TextStyle(color: Colors.grey)),
-                Wrap(children: data.tags.map((tag) => CommonTag(tag)).toList()),
-                Text("${data.price} 元/月",
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16
-                    )),
-              ],
+    return GestureDetector(
+      onTap: ()=>Navigator.of(context).pushNamed("roomDetail/${data.id}"),
+      child: Container(
+        padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+        child: Row(
+          children: [
+            CommonImage(
+              data.imageUrl,
+              width: 140,
             ),
-          )
-        ],
+            Padding(padding: EdgeInsets.only(left: 10)),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    data.title,
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Text(data.subTitle, style: TextStyle(color: Colors.grey)),
+                  Wrap(children: data.tags.map((tag) => CommonTag(tag)).toList()),
+                  Text("${data.price} 元/月",
+                      style: TextStyle(
+                        color: Colors.orange,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16
+                      )),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

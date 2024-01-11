@@ -13,7 +13,7 @@ class Routes {
   static String home = "/";
   static String login = "/login";
   static String register = "/register";
-  static String roomDetail = "/room/:roomId";
+  static String roomDetail = "/roomDetail/:roomId";
   static String settings = "/settings";
   static String roomManage = "/roomManage";
   static String roomAdd = "/roomAdd";
