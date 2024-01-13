@@ -11,7 +11,8 @@ class IndexNavigatorItem {
 List<IndexNavigatorItem> items = [
   IndexNavigatorItem("整租", "static/images/home_index_navigator_total.png",
       (BuildContext context) {
-    Navigator.pushNamed(context, "/total");
+    // Navigator.pushNamed(context, "/total");
+    Navigator.pushNamed(context, "/register");
   }),
   IndexNavigatorItem("合租", "static/images/home_index_navigator_share.png",
       (BuildContext context) {
