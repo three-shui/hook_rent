@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hook_rent/scoped_model/auth_model.dart';
+import 'package:hook_rent/utils/scoped_model_helper.dart';
 
 class Header extends StatelessWidget {
   const Header({Key? key}) : super(key: key);
@@ -58,27 +60,31 @@ class Header extends StatelessWidget {
 
   //已登录
   Widget _loginBuilder(BuildContext context) {
+    var userInfo = ScopedModelHelper.getModel<AuthModel>(context).userInfo;
+    // String userName = (userInfo.nickname != null ? userInfo.nickname! : "nano");
+    // // String avatar = userInfo.avatar ??
+    // //     "https://tva1.sinaimg.cn/large/008i3skNgy1gsuhtensa6j30lk0li76f.jpg";
+    String userName = userInfo.nickname!;
+    String avatar = userInfo.avatar!;
     return Container(
       height: 110,
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(color: Colors.green),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
-        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 35,
-            backgroundImage: NetworkImage(
-                "https://tva1.sinaimg.cn/large/008i3skNgy1gsuhtensa6j30lk0li76f.jpg"),
+            backgroundImage: NetworkImage(avatar),
           ),
           Padding(padding: EdgeInsets.only(right: 15)),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
                 //这里显示已登录用户名
-                "Nio",
+                userName,
                 style: TextStyle(fontSize: 25, color: Colors.white),
               ),
               Text(
@@ -94,7 +100,7 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool _isLogin = true;
+    bool _isLogin = ScopedModelHelper.getModel<AuthModel>(context).isLogin;
     return _isLogin ? _loginBuilder(context) : _notLoginBuilder(context);
   }
 }

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hook_rent/scoped_model/auth_model.dart';
+import 'package:hook_rent/utils/scoped_model_helper.dart';
 
 class FunctionButtonItem {
   final String imageUrl;
   final String title;
   final Function? onTapHandle;
+
   FunctionButtonItem(this.imageUrl, this.title, this.onTapHandle);
 }
 
@@ -16,10 +19,11 @@ final List<FunctionButtonItem> functionButtonItems = [
   FunctionButtonItem('static/images/home_profile_contract.png', '电子合同', null),
   FunctionButtonItem('static/images/home_profile_wallet.png', '钱包', null),
   FunctionButtonItem('static/images/home_profile_house.png', "房屋管理", (context) {
-    bool isLogin = true; //假设先设置未登录
+    bool isLogin = ScopedModelHelper.getModel<AuthModel>(context).isLogin;
     if (isLogin) {
       Navigator.pushNamed(context, 'roomManage');
-    }else{
+      return;
+    } else {
       Navigator.pushNamed(context, '/login');
     }
   })

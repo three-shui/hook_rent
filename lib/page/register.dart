@@ -38,7 +38,6 @@ class _RegisterPageState extends State<RegisterPage> {
     if (res.statusCode == 200) {
       Navigator.of(context).pushReplacementNamed("/login");
     }
-    // Navigator.of(context).pushReplacementNamed("/login");
   }
 
   @override

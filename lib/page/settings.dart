@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hook_rent/scoped_model/auth_model.dart';
+import 'package:hook_rent/utils/scoped_model_helper.dart';
 
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);
@@ -33,6 +35,7 @@ class Settings extends StatelessWidget {
                       TextButton(
                           onPressed: () {
                             //关闭，返回值为true
+                            ScopedModelHelper.getModel<AuthModel>(context).logout();
                             Navigator.of(context).pop(true);
                           },
                           child: Text(
